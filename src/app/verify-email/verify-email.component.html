@@ -1,0 +1,61 @@
+<div class="page-container flex-center">
+  <mat-card class="verify-card animate-fade-in glass-panel">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon class="verify-icon">mark_email_read</mat-icon>
+        Verify Your Email
+      </mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <p class="instruction-text">
+        We've sent a verification code to your email address. Please enter it below to verify your account.
+      </p>
+
+      <form #verifyForm="ngForm" class="verify-form">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email Address</mat-label>
+          <input matInput type="email" [(ngModel)]="email" name="email" required email>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Verification Code (OTP)</mat-label>
+          <input matInput [(ngModel)]="otp" name="otp" required maxlength="6" placeholder="Enter 6-digit code">
+          <mat-icon matSuffix>pin</mat-icon>
+        </mat-form-field>
+
+        <div class="actions">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            type="button"
+            (click)="verifyOtp()" 
+            [disabled]="!verifyForm.form.valid || isLoading"
+            class="verify-btn">
+            {{ isLoading ? 'Verifying...' : 'Verify Email' }}
+          </button>
+        </div>
+
+        <div class="resend-section">
+          <p>Didn't receive the code?</p>
+          <button 
+            mat-button 
+            type="button"
+            (click)="resendOtp()" 
+            [disabled]="isLoading || !email"
+            class="resend-btn">
+            Resend OTP
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+
+    <mat-card-footer *ngIf="message">
+      <div class="message-box" [class.success]="isSuccess" [class.error]="!isSuccess">
+        <mat-icon>{{ isSuccess ? 'check_circle' : 'error' }}</mat-icon>
+        <span>{{ message }}</span>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>

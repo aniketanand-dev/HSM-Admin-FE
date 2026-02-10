@@ -1,0 +1,104 @@
+.page-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: radial-gradient(circle at top right, #eef2ff, #f8fafc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.verify-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 24px;
+}
+
+mat-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-size: 24px;
+  text-align: center;
+  color: var(--primary);
+}
+
+.verify-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  color: var(--primary);
+}
+
+.instruction-text {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.verify-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  
+  .verify-btn {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 16px;
+  }
+}
+
+.resend-section {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  
+  p {
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  .resend-btn {
+    color: var(--primary);
+    font-weight: 500;
+    
+    &:hover {
+      background-color: var(--primary-light);
+    }
+  }
+}
+
+.message-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  
+  &.success {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+  }
+  
+  &.error {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+  }
+}

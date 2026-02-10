@@ -1,0 +1,67 @@
+<div class="page-container flex-center">
+  <mat-card class="create-card animate-fade-in glass-panel">
+    <mat-card-header>
+      <mat-card-title>Create New Hostel</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" #hostelForm="ngForm" class="create-form">
+        
+        <div class="section-title">Hostel Details</div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Hostel Name</mat-label>
+            <input matInput [(ngModel)]="hostel.hostelName" name="hostelName" required placeholder="Ex. Sunrise Hostel">
+            <mat-icon matSuffix>apartment</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+             <mat-label>Capacity</mat-label>
+             <input matInput type="number" [(ngModel)]="hostel.capacity" name="capacity" required min="1">
+             <mat-icon matSuffix>people</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Location</mat-label>
+          <input matInput [(ngModel)]="hostel.location" name="location" required placeholder="Ex. Ranchi, Jharkhand">
+          <mat-icon matSuffix>location_on</mat-icon>
+        </mat-form-field>
+
+        <div class="section-title">Admin Details</div>
+        
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Admin Name</mat-label>
+          <input matInput [(ngModel)]="hostel.admin.name" name="adminName" required>
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="hostel.admin.email" name="adminEmail" required email>
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="hostel.admin.password" name="adminPassword" required minlength="6">
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="actions">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!hostelForm.form.valid">
+                Create Hostel
+            </button>
+        </div>
+      </form>
+    </mat-card-content>
+    
+    <mat-card-footer *ngIf="message">
+        <div class="message-box" [class.success]="isSuccess" [class.error]="!isSuccess">
+             <mat-icon>{{ isSuccess ? 'check_circle' : 'error' }}</mat-icon>
+             <span>{{ message }}</span>
+        </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
