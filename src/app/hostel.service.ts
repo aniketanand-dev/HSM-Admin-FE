@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class HostelService {
-    private apiUrl = 'http://localhost:3000/api/v1/hostel';
-    private baseUrl = 'http://localhost:3000/api/v1';
+    private apiUrl = 'http://localhost:5000/api/v1/hostel';
+    private baseUrl = 'http://localhost:5000/api/v1';
 
     constructor(private http: HttpClient) { }
 
